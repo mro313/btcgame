@@ -4,6 +4,11 @@ namespace ConsoleApp1
 {
     class Program
     {
+
+        // to do: complete "end of game"
+        // to do: fix math, decimals, float
+
+
         static void Main(string[] args)
         {
             int totalBitcoin = 1;
