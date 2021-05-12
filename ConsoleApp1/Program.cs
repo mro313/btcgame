@@ -18,6 +18,14 @@ namespace ConsoleApp1
             // create Random class (system class)
             Random generateRandom = new Random();
 
+            // TEST class
+            mathClass mathExampleObject = new mathClass();
+
+            Console.WriteLine("this is for test class, what is your name?");
+            mathExampleObject.Name = Console.ReadLine();
+            mathExampleObject.greeting();
+            mathExampleObject.calculateBitcoins(totalBitcoin);
+
             // get player nanme
             Console.WriteLine("Enter your name: ");
             string name = Console.ReadLine();
