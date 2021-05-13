@@ -18,8 +18,6 @@ namespace ConsoleApp1
             // create Random class (system class)
             Random generateRandom = new Random();
 
-            // TEST class
-            mathClass mathExampleObject = new mathClass();
 
             Console.WriteLine("this is for test class, what is your name?");
             mathExampleObject.Name = Console.ReadLine();
@@ -106,40 +104,10 @@ namespace ConsoleApp1
                     // buy logic
                     if (input == "buy")
                     {
-                        int potentialBuyAmount = (totalMoney / btcPrice);
-
-                        if (potentialBuyAmount > 0)
-                        {
-                            // let them buy
-                            Console.Clear();
-                            Console.WriteLine("You are about to buy " + potentialBuyAmount + " bitcoins for the following price: $" + btcPrice);
-                            Console.WriteLine("");
-                            Console.WriteLine("Do you want to proceed? Type Y or N");
-                            Console.WriteLine("");
-                            string buyBitcoin = Console.ReadLine();
-
-                            if (buyBitcoin == "Y")
-                            {
-                                Console.Clear();
-                                totalBitcoin = potentialBuyAmount;
-                                totalMoney = 0;
-                                Console.WriteLine("You bought some bitcoins. You now have " + totalBitcoin + " bitcoins.");
-                            }
-
-                            // FIXME
-                            // need to add when you can't buy
-
-                            else
-                            {
-                                Console.WriteLine("Sending you back");
-                            }
-                        }
-
-                        else
-                        {
-                            Console.WriteLine("Sending you back");
-                        }
-
+                        var buyBitcoinObject = new BuyClass();
+                        // in order to call a method on the instance...need to:
+                        // ** you don't need to refer to the class... only the instance!"
+                        buyBitcoinObject.BuyBitcoin(totalBitcoin, totalMoney, btcPrice);
 
                     }
 
@@ -158,10 +126,10 @@ namespace ConsoleApp1
 
                 }
 
-              
-
 
             }
         }
+
+        
     }
 }
