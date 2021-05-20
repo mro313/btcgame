@@ -7,7 +7,9 @@ namespace ConsoleApp1
     class BuyClass
     {
         // return type = we use a tuple here
-        public (int, int) BuyBitcoin(int totalBitcoin, int totalMoney, int btcPrice)
+        // new way - TradeResult (class) is our new result type
+
+        public TradeResult BuyBitcoin(int totalBitcoin, int totalMoney, int btcPrice)
         {
             int potentialBuyAmount = (totalMoney / btcPrice);
 
@@ -27,7 +29,9 @@ namespace ConsoleApp1
                     totalBitcoin = potentialBuyAmount;
                     totalMoney = 0;
                     Console.WriteLine("You bought some bitcoins. You now have " + totalBitcoin + " bitcoins.");
-                    return (totalBitcoin, totalMoney);
+                    return new TradeResult { TotalBitcoin = totalBitcoin, TotalMoney = totalMoney };
+
+                    //this is ^^ object initialization syntax
                     // return type needs to be same way you sent it (input)
                 }
 
@@ -37,12 +41,14 @@ namespace ConsoleApp1
                 else
                 {
                     Console.WriteLine("Sending you back");
+                    return null;
                 }
             }
 
             else
             {
                 Console.WriteLine("Sending you back");
+                return null;
             }
         }
 

@@ -19,11 +19,6 @@ namespace ConsoleApp1
             Random generateRandom = new Random();
 
 
-            Console.WriteLine("this is for test class, what is your name?");
-            mathExampleObject.Name = Console.ReadLine();
-            mathExampleObject.greeting();
-            mathExampleObject.calculateBitcoins(totalBitcoin);
-
             // get player nanme
             Console.WriteLine("Enter your name: ");
             string name = Console.ReadLine();
@@ -107,7 +102,14 @@ namespace ConsoleApp1
                         var buyBitcoinObject = new BuyClass();
                         // in order to call a method on the instance...need to:
                         // ** you don't need to refer to the class... only the instance!"
-                        buyBitcoinObject.BuyBitcoin(totalBitcoin, totalMoney, btcPrice);
+                        var buyTradeResult = buyBitcoinObject.BuyBitcoin(totalBitcoin, totalMoney, btcPrice);
+
+                        if (buyTradeResult != null)
+                        {
+                            // need to update the global variables
+                            totalBitcoin = buyTradeResult.TotalBitcoin;
+                            totalMoney = buyTradeResult.TotalMoney;
+                        }
 
                     }
 
