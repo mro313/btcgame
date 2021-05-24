@@ -7,6 +7,7 @@ namespace ConsoleApp1
 
         // to do: complete "end of game"
         // to do: fix math, decimals, float
+        // to do: add user input for length of game
 
 
         static void Main(string[] args)
@@ -25,7 +26,6 @@ namespace ConsoleApp1
             Console.Clear();
 
             // player instructions
-            Console.WriteLine("--------------------------------------------------------------------------------------------------");
             Console.WriteLine("--------------------------------------------------------------------------------------------------");
             Console.WriteLine("");
             Console.WriteLine(name + ", you have " + totalDays + " days to make the most money possible via trading bitcoins.");
@@ -64,66 +64,47 @@ namespace ConsoleApp1
                     Console.WriteLine("   // type 'done' if you are done trading for the day");
                     Console.WriteLine("   // user actions are Case Sensitive");
                     Console.WriteLine("-------------------------------------------------------------- ");
-                    
-                    // prompt - input
+
+
+                    // switch statement
                     input = Console.ReadLine();
 
-                    // sell logic
-                    if (input == "sell")
+                    switch (input)
                     {
-                        Console.Clear();
-                        Console.WriteLine("You are about to sell " + totalBitcoin + " bitcoins for the following price: $" + btcPrice);
-                        Console.WriteLine("");
-                        Console.WriteLine("Do you want to proceed? Type Y or N");
-                        Console.WriteLine("");
-                        string sellBitcoin = Console.ReadLine();
 
-                        if (sellBitcoin == "Y")
-                        {
+                        case "sell":
+                            // creating an instance of the SellClass 
+                            var sellBitcoinObject = new SellClass();
+
+                            // now you can call the method on that instance
+                            var sellTradeResult = sellBitcoinObject.SellBitcoin(totalBitcoin, totalMoney, btcPrice);
+
+                            if (sellTradeResult != null)
+                            {
+                                // need to update the global variables
+                                totalBitcoin = sellTradeResult.TotalBitcoin;
+                                totalMoney = sellTradeResult.TotalMoney;
+                            }
+                            break;
+
+                        case "buy":
+                            var buyBitcoinObject = new BuyClass();
+                            // in order to call a method on the instance...need to:
+                            // ** you don't need to refer to the class... only the instance!"
+                            var buyTradeResult = buyBitcoinObject.BuyBitcoin(totalBitcoin, totalMoney, btcPrice);
+
+                            if (buyTradeResult != null)
+                            {
+                                // need to update the global variables
+                                totalBitcoin = buyTradeResult.TotalBitcoin;
+                                totalMoney = buyTradeResult.TotalMoney;
+                            }
+                            break;
+
+                        case "done":
                             Console.Clear();
-                            totalMoney = totalBitcoin * btcPrice;
-                            totalBitcoin = 0;
-                            Console.WriteLine("You sold your bitcoins. You now have $" + totalMoney);
-                        }
+                            break;
 
-                        // FIXME
-                        // need to add logic for if you sell with 0 bitcoins. that would wipe out your total money
-
-                        else
-                        {
-                            Console.WriteLine("Sending you back");
-                        }
-
-                    }
-
-                    // buy logic
-                    if (input == "buy")
-                    {
-                        var buyBitcoinObject = new BuyClass();
-                        // in order to call a method on the instance...need to:
-                        // ** you don't need to refer to the class... only the instance!"
-                        var buyTradeResult = buyBitcoinObject.BuyBitcoin(totalBitcoin, totalMoney, btcPrice);
-
-                        if (buyTradeResult != null)
-                        {
-                            // need to update the global variables
-                            totalBitcoin = buyTradeResult.TotalBitcoin;
-                            totalMoney = buyTradeResult.TotalMoney;
-                        }
-
-                    }
-
-                    if (input == "done")
-                    {
-                        // exit while loop
-                        Console.Clear();
-                        break;
-                    }
-
-                    else
-                    {
-                        // 'don't understand, please try again'
-                        Console.WriteLine("");
                     }
 
                 }

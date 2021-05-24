@@ -21,9 +21,9 @@ namespace ConsoleApp1
                 Console.WriteLine("");
                 Console.WriteLine("Do you want to proceed? Type Y or N");
                 Console.WriteLine("");
-                string buyBitcoin = Console.ReadLine();
+                string buyBitcoin = Console.ReadLine().ToLower();
 
-                if (buyBitcoin == "Y")
+                if (buyBitcoin == "y")
                 {
                     Console.Clear();
                     totalBitcoin = potentialBuyAmount;
@@ -40,6 +40,7 @@ namespace ConsoleApp1
 
                 else
                 {
+                    Console.Clear();
                     Console.WriteLine("Sending you back");
                     return null;
                 }
@@ -47,7 +48,8 @@ namespace ConsoleApp1
 
             else
             {
-                Console.WriteLine("Sending you back");
+                Console.Clear();
+                Console.WriteLine("You can't buy! Sending you back");
                 return null;
             }
         }
