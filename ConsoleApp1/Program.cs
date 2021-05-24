@@ -6,14 +6,14 @@ namespace ConsoleApp1
     {
 
         // to do: fix math, decimals, float
-        // to do: add user input for length of game
+        // to do: add user ability to buy/sell portion of btcs
 
 
         static void Main(string[] args)
-        {
+        {   
+            // Global variables
             int totalBitcoin = 1;
             int totalMoney = 0;
-            int totalDays = 5;
 
             //moved this from loop, to global variable
             int currentDay = 1;
@@ -31,7 +31,13 @@ namespace ConsoleApp1
             string name = Console.ReadLine();
             Console.Clear();
 
+            // ask for game length
+            Console.Clear();
+            Console.WriteLine("How many days do you want to trade bitcoin?");
+            int totalDays = Convert.ToInt32(Console.ReadLine());
+
             // player instructions
+            Console.Clear();
             Console.WriteLine("--------------------------------------------------------------------------------------------------");
             Console.WriteLine("");
             Console.WriteLine(name + ", you have " + totalDays + " days to make the most money possible via trading bitcoins.");
@@ -55,6 +61,7 @@ namespace ConsoleApp1
                 while (input != "done")
                 {
                     // prompt - menu
+                    Console.Clear();
                     Console.WriteLine("-------------------------------------------------------------- ");
                     Console.WriteLine("Today is day " + currentDay + ". You have " + daysLeft + " days left.");
                     Console.WriteLine("");
