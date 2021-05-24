@@ -5,7 +5,6 @@ namespace ConsoleApp1
     class Program
     {
 
-        // to do: complete "end of game"
         // to do: fix math, decimals, float
         // to do: add user input for length of game
 
@@ -15,6 +14,13 @@ namespace ConsoleApp1
             int totalBitcoin = 1;
             int totalMoney = 0;
             int totalDays = 5;
+
+            //moved this from loop, to global variable
+            int currentDay = 1;
+
+            //move these from local, to global variable to be used later
+            int daysLeft = 0;
+            int btcPrice = 0;
 
             // create Random class (system class)
             Random generateRandom = new Random();
@@ -37,11 +43,11 @@ namespace ConsoleApp1
             Console.WriteLine("");
 
 
-            for (int currentDay = 1; currentDay <= totalDays; currentDay++)
+            for (int i = 1; currentDay <= totalDays; currentDay++)
             {
                 // local variables
-                int daysLeft = totalDays - currentDay;
-                int btcPrice = generateRandom.Next(0, 70000); // daily bitcoin price
+                daysLeft = totalDays - currentDay;
+                btcPrice = generateRandom.Next(0, 70000); // daily bitcoin price
                 string input = "";
 
                 
@@ -62,12 +68,11 @@ namespace ConsoleApp1
                     Console.WriteLine("   // type 'buy' to buy bitcoins");
                     Console.WriteLine("   // type 'sell' to sell your bitcoins");
                     Console.WriteLine("   // type 'done' if you are done trading for the day");
-                    Console.WriteLine("   // user actions are Case Sensitive");
                     Console.WriteLine("-------------------------------------------------------------- ");
 
 
                     // switch statement
-                    input = Console.ReadLine();
+                    input = Console.ReadLine().ToLower();
 
                     switch (input)
                     {
@@ -111,6 +116,17 @@ namespace ConsoleApp1
 
 
             }
+
+            // end of game
+           if (daysLeft == 0)
+            {
+                int finalScore = totalMoney + (totalBitcoin * btcPrice);
+
+                Console.Clear();
+                Console.WriteLine("-------------------------------------------------------------- ");
+                Console.WriteLine("Congratulations, " + name + ". Your Final Score is: $" + finalScore);
+            }
+
         }
 
         
