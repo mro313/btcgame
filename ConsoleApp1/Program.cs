@@ -5,15 +5,17 @@ namespace ConsoleApp1
     class Program
     {
 
-        // to do: fix math, decimals, float
+        // to do: limit number of decimals for change
+        // currently a 'float' so only 7 total spaces, e.g., 302930.5
+
         // to do: add user ability to buy/sell portion of btcs
 
 
         static void Main(string[] args)
         {   
             // Global variables
-            int totalBitcoin = 1;
-            int totalMoney = 0;
+            float totalBitcoin = 1.0F;
+            float totalMoney = 0F;
 
             //moved this from loop, to global variable
             int currentDay = 1;
@@ -127,7 +129,7 @@ namespace ConsoleApp1
             // end of game
            if (daysLeft == 0)
             {
-                int finalScore = totalMoney + (totalBitcoin * btcPrice);
+                float finalScore = totalMoney + (totalBitcoin * btcPrice);
 
                 Console.Clear();
                 Console.WriteLine("-------------------------------------------------------------- ");

@@ -9,9 +9,10 @@ namespace ConsoleApp1
         // return type = we use a tuple here
         // new way - TradeResult (class) is our new result type
 
-        public TradeResult BuyBitcoin(int totalBitcoin, int totalMoney, int btcPrice)
+        public TradeResult BuyBitcoin(float totalBitcoin, float totalMoney, int btcPrice)
         {
-            int potentialBuyAmount = (totalMoney / btcPrice);
+            // change potentialBuyAmount from int to float
+            float potentialBuyAmount = (float)totalMoney / btcPrice;
 
             if (potentialBuyAmount > 0)
             {

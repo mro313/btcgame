@@ -6,7 +6,7 @@ namespace ConsoleApp1
 {
     class SellClass
     {
-        public TradeResult SellBitcoin(int totalBitcoin, int totalMoney, int btcPrice)
+        public TradeResult SellBitcoin(float totalBitcoin, float totalMoney, int btcPrice)
         {
             var sellTotal = totalBitcoin * btcPrice;
 
