@@ -1,0 +1,10 @@
+﻿5/25: Added Colorful.Console Nuget package to change console colors; added some color to variables
+
+
+
+
+
+
+
+
+

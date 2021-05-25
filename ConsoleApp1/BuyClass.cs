@@ -14,6 +14,7 @@ namespace ConsoleApp1
             // change potentialBuyAmount from int to float
             float potentialBuyAmount = (float)totalMoney / btcPrice;
 
+            // see if he can buy
             if (potentialBuyAmount > 0)
             {
                 // let them buy
@@ -36,8 +37,7 @@ namespace ConsoleApp1
                     // return type needs to be same way you sent it (input)
                 }
 
-                // FIXME
-                // need to add when you can't buy
+                // FIXME: need to add when you can't buy
 
                 else
                 {

@@ -1,0 +1,13 @@
+﻿Features:
+
+to do: limit number of decimals for change
+currently a 'float' so only 7 total spaces, e.g., 302930.5
+
+to do: add user ability to buy/sell portion of btcs
+to do: change the console color (white? blue) and add console animations (console spinner)
+console stuff: https://www.michalbialecki.com/2018/05/25/how-to-make-you-console-app-look-cool/
+
+
+add a top score, scoreboard.
+refactor code - global/local variables
+refactor code - for loop (for days logic) needs to remove variable

@@ -1,15 +1,11 @@
 ﻿using System;
+using System.Drawing;
+using Console = Colorful.Console;
 
 namespace ConsoleApp1
 {
     class Program
     {
-
-        // to do: limit number of decimals for change
-        // currently a 'float' so only 7 total spaces, e.g., 302930.5
-
-        // to do: add user ability to buy/sell portion of btcs
-
 
         static void Main(string[] args)
         {   
@@ -27,26 +23,24 @@ namespace ConsoleApp1
             // create Random class (system class)
             Random generateRandom = new Random();
 
-
             // get player nanme
-            Console.WriteLine("Enter your name: ");
+            Console.WriteLine("Enter your name: ", Color.LimeGreen);
             string name = Console.ReadLine();
             Console.Clear();
 
             // ask for game length
             Console.Clear();
-            Console.WriteLine("How many days do you want to trade bitcoin?");
+            Console.WriteLine("How many days do you want to trade bitcoin?", Color.LimeGreen);
             int totalDays = Convert.ToInt32(Console.ReadLine());
 
             // player instructions
             Console.Clear();
             Console.WriteLine("--------------------------------------------------------------------------------------------------");
             Console.WriteLine("");
-            Console.WriteLine(name + ", you have " + totalDays + " days to make the most money possible via trading bitcoins.");
+            Console.Write(name + ",", Color.Red); 
+            Console.Write(" you have " + totalDays + " days to make the most money possible via trading bitcoins.");
             Console.WriteLine("");
             Console.WriteLine("When there are no more days left, your final score will equal the following: [total money + bitcoin assets]");
-            Console.WriteLine("");
-
             Console.WriteLine("You will start out with " + totalBitcoin + " bitcoins.");
             Console.WriteLine("");
 
@@ -63,17 +57,17 @@ namespace ConsoleApp1
                 while (input != "done")
                 {
                     // prompt - menu
-                    Console.Clear();
                     Console.WriteLine("-------------------------------------------------------------- ");
-                    Console.WriteLine("Today is day " + currentDay + ". You have " + daysLeft + " days left.");
+                    Console.WriteLine("Today is day " + currentDay + ". You have " + daysLeft + " days left.", Color.Red);
                     Console.WriteLine("");
                     Console.WriteLine("");
-                    Console.WriteLine("Current bitcoin price is: $" + btcPrice);
+                    Console.Write("Current bitcoin price is: ");
+                    Console.WriteLine("$" + btcPrice, Color.LimeGreen);
                     Console.WriteLine("You have " + totalBitcoin + " bitcoins.");
                     Console.WriteLine("You have $" + totalMoney + " dollars.");
                     Console.WriteLine("");
                     Console.WriteLine("");
-                    Console.WriteLine("What do you want to do?");
+                    Console.WriteLine("What do you want to do?", Color.LimeGreen);
                     Console.WriteLine("   // type 'buy' to buy bitcoins");
                     Console.WriteLine("   // type 'sell' to sell your bitcoins");
                     Console.WriteLine("   // type 'done' if you are done trading for the day");
@@ -97,7 +91,7 @@ namespace ConsoleApp1
                             {
                                 // need to update the global variables
                                 totalBitcoin = sellTradeResult.TotalBitcoin;
-                                totalMoney = sellTradeResult.TotalMoney;
+                                    totalMoney = sellTradeResult.TotalMoney;
                             }
                             break;
 
@@ -133,7 +127,7 @@ namespace ConsoleApp1
 
                 Console.Clear();
                 Console.WriteLine("-------------------------------------------------------------- ");
-                Console.WriteLine("Congratulations, " + name + ". Your Final Score is: $" + finalScore);
+                Console.WriteLine("Congratulations, " + name + ". Your Final Score is: $" + finalScore, Color.Orange);
             }
 
         }
