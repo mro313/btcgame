@@ -1,5 +1,11 @@
 ﻿Features:
 
+
+crytocoins
+> add new currencies
+> add new IPO (string randomizer)
+
+
 to do: limit number of decimals for change
 currently a 'float' so only 7 total spaces, e.g., 302930.5
 
@@ -10,4 +16,17 @@ console stuff: https://www.michalbialecki.com/2018/05/25/how-to-make-you-console
 
 add a top score, scoreboard.
 refactor code - global/local variables
-refactor code - for loop (for days logic) needs to remove variable
+refactor code - for loop (for days logic) needs to remove variable'
+
+seperate business logic into seperate file (days left, etc.)
+>> just put it into a new class...
+>> thank and instantiate the class...
+
+
+
+business layer - all the logic (e.g., how long do you want to take - 10- days)
+**** also add a service tax 
+that class should take # of coins, and return it back
+then calc the service tax
+
+controller - just get info from biz layer, and pass it.

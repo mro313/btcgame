@@ -9,4 +9,8 @@
     <PackageReference Include="Colorful.Console" Version="1.2.15" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BitcoinBusinessLayer\BitcoinBusinessLayer.csproj" />
+  </ItemGroup>
+
 </Project>

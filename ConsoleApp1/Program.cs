@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using Console = Colorful.Console;
+using BitcoinBusinessLayer;
 
 namespace ConsoleApp1
 {
@@ -8,7 +9,11 @@ namespace ConsoleApp1
     {
 
         static void Main(string[] args)
-        {   
+        {
+
+            ServiceCalculationBusinessLayer bitcoinBusinessLayer = new ServiceCalculationBusinessLayer();
+            bitcoinBusinessLayer.CalculateBitcoinServiceFee(3);
+
             // Global variables
             float totalBitcoin = 1.0F;
             float totalMoney = 0F;
