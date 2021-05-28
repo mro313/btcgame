@@ -17,18 +17,14 @@ namespace ConsoleApp1
             // Global variables
             float totalBitcoin = 1.0F;
             float totalMoney = 0F;
-
-            //moved this from loop, to global variable
-            int currentDay = 1;
-
-            //move these from local, to global variable to be used later
-            int daysLeft = 0;
-            int btcPrice = 0;
+            int currentDay = 1; //moved this from loop, to global variable
+            int daysLeft = 0; //move these from local, to global variable to be used later
+            int btcPrice = 0; //move these from local, to global variable to be used later
 
             // create Random class (system class)
             Random generateRandom = new Random();
 
-            // get player nanme
+            // get player name
             Console.WriteLine("Enter your name: ", Color.LimeGreen);
             string name = Console.ReadLine();
             Console.Clear();
@@ -38,18 +34,10 @@ namespace ConsoleApp1
             Console.WriteLine("How many days do you want to trade bitcoin?", Color.LimeGreen);
             int totalDays = Convert.ToInt32(Console.ReadLine());
 
-            // player instructions
-            Console.Clear();
-            Console.WriteLine("--------------------------------------------------------------------------------------------------");
-            Console.WriteLine("");
-            Console.Write(name + ",", Color.Red); 
-            Console.Write(" you have " + totalDays + " days to make the most money possible via trading bitcoins.");
-            Console.WriteLine("");
-            Console.WriteLine("When there are no more days left, your final score will equal the following: [total money + bitcoin assets]");
-            Console.WriteLine("You will start out with " + totalBitcoin + " bitcoins.");
-            Console.WriteLine("");
-
-
+            // new player instructions
+            Instructions.printInstructions(name, totalDays, totalBitcoin);
+            
+            // main program logic
             for (int i = 1; currentDay <= totalDays; currentDay++)
             {
                 // local variables
