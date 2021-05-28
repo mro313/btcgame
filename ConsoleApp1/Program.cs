@@ -28,6 +28,7 @@ namespace ConsoleApp1
             Console.WriteLine("Enter your name: ", Color.LimeGreen);
             string name = Console.ReadLine();
             Console.Clear();
+            // GetUserName.getName(); // call the class
 
             // ask for game length
             Console.Clear();
